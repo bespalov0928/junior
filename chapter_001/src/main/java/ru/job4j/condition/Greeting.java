@@ -7,6 +7,7 @@ public class Greeting {
         System.out.println(idea + " But I am a newbie." + year);
     }
 
+
     public static int getCurrentYear() {
         java.util.Calendar calendar = java.util.Calendar.getInstance(java.util.TimeZone.getDefault(), java.util.Locale.getDefault());
         calendar.setTime(new java.util.Date());
