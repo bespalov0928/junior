@@ -2,7 +2,6 @@ package ru.job4j.converter;
 
 public class Converter {
 
-    @SuppressWarnings("checkstyle:ParenPad")
     public static void main(String[] args) {
         float euro = rubleToEuro(140);
         float dollar = rubleToDollar(140);
