@@ -19,10 +19,10 @@ public class Point {
         double x = x2 - x1;
         double y = y2 - y1;
 
-        x = x * x;
-        y = y * y;
+        x = Math.pow(x, 2);
+        y = Math.pow(y, 2);
 
-        rsl = Math.pow(x + y, 2);
+        rsl = Math.sqrt(x + y);
         return rsl;
     }
 }
