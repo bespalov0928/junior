@@ -1,5 +1,6 @@
 package ru.job4j.converter;
 
+
 public class Converter {
 
     public static void main(String[] args) {
@@ -24,10 +25,21 @@ public class Converter {
 
     }
 
+    /**
+     *
+     * @param value - сумма в рублях
+     * @return - возвращаем сумму в ЕВРО
+     */
     public static float rubleToEuro(float value) {
         float rsl = (float) (value / 70);
         return rsl;
     }
+
+    /**
+     *
+     * @param value - сумма в рублях
+     * @return - возвращаем сумму в долларах
+     */
     public static float rubleToDollar(float value) {
         float rsl = (float) (value / 60.00);
         return rsl;
