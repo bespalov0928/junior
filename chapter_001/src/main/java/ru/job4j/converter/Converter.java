@@ -1,6 +1,11 @@
 package ru.job4j.converter;
 
-
+/**
+ * 1.1.4.5.8. JavaDoc. Code convention[#270956]
+ * class Converter - пересчитывает иностранную валюту в рубли
+ * @author bespalov
+ * @version 1.0
+ */
 public class Converter {
 
     public static void main(String[] args) {
