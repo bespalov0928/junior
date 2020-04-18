@@ -1,7 +1,7 @@
 package ru.job4j.array;
 
 /**
- * class AlgoArray сортировка массива
+ * class AlgoArray сортировка массив
  */
 public class AlgoArray {
     public static void main(String[] args) {
