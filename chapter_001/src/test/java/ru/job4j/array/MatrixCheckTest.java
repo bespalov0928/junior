@@ -42,4 +42,16 @@ public class MatrixCheckTest {
         assertThat(result, is(false));
     }
 
+    @Test
+    public void whenDiagonal() {
+        char[][] input = {
+                {'X', ' ', ' '},
+                {' ', 'X', ' '},
+                {' ', ' ', 'X'},
+        };
+        char[] result = MatrixCheck.extractDiagonal(input);
+        char[] expect = {'X', 'X', 'X'};
+        assertThat(result, is(expect));
+    }
+
 }
