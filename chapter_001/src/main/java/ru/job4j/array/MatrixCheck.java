@@ -48,4 +48,29 @@ public class MatrixCheck {
         return rsl;
     }
 
+
+    /**
+     * проверка существует ли заполненная вертикальная или горизонтальная линия
+     *
+     * @param board массив
+     * @return результат проверки
+     */
+    public static boolean isWin(char[][] board) {
+        boolean result = false;
+        for (int x = 0; x < board.length; x++) {
+            for (int y = 0; y < board[x].length; y++) {
+                if (x == 0 || y == 0) {
+                    result = monoHorizontal(board, x) || monoVertical(board, y);
+
+                }
+                if (result) {
+                    break;
+                }
+            }
+            if (result) {
+                break;
+            }
+        }
+        return result;
+    }
 }
