@@ -35,15 +35,15 @@ public class MatrixCheck {
         return result;
     }
 
-
+    /**
+     * выстраивает заполняет итоговый массив из входящего массива
+     * @param board Исходный массив
+     * @return масив результат
+     */
     public static char[] extractDiagonal(char[][] board) {
         char[] rsl = new char[board.length];
         for (int x = 0; x < board.length; x++) {
-            for (int y = 0; y < board[x].length; y++) {
-                if (x == y) {
-                    rsl[x] = board[x][y];
-                }
-            }
+            rsl[x] = board[x][x];
         }
         return rsl;
     }
