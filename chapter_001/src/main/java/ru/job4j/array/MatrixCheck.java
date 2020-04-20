@@ -51,14 +51,15 @@ public class MatrixCheck {
 
     /**
      * проверка существует ли заполненная вертикальная или горизонтальная линия
-     *
      * @param board массив
      * @return результат проверки
      */
     public static boolean isWin(char[][] board) {
         boolean result = false;
         for (int x = 0; x < board.length; x++) {
-            result = monoHorizontal(board, x) || monoVertical(board, x);
+            if (board[x][x] == 'X') {
+                result = monoHorizontal(board, x) || monoVertical(board, x);
+            }
             if (result) {
                 break;
             }
