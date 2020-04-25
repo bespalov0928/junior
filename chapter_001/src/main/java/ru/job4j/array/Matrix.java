@@ -1,14 +1,14 @@
 package ru.job4j.array;
 
 /**
- * class Matrix строит таблицу умножения
+ * class Matrix создание массива
  * @author bespalov
  * @version 1.0
  */
 public class Matrix {
 
     /**
-     *
+     * строит таблицу умножения
      * @param size размер таблицы
      * @return
      */

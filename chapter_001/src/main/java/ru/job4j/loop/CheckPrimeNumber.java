@@ -1,7 +1,16 @@
 package ru.job4j.loop;
 
+/**
+ * class CheckPrimeNumber Метод должен вернуть true, если переменная number является простым числом.
+ * @author bespalov
+ */
 public class CheckPrimeNumber {
 
+    /**
+     * Метод должен вернуть true, если переменная number является простым числом.
+     * @param number число
+     * @return результат
+     */
     public static boolean check(int number) {
         boolean prime = number > 1;
 

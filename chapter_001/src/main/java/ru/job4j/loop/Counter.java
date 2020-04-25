@@ -1,5 +1,9 @@
 package ru.job4j.loop;
 
+/**
+ * class Counter подсчитываtn сумму чисел от начального значения до конечного
+ * @author bespalov
+ */
 public class Counter {
     public static void main(String[] args) {
         System.out.println(sum(0, 10));
@@ -11,6 +15,12 @@ public class Counter {
         System.out.println(sumByEven(1, 1));
     }
 
+    /**
+     * подсчитываtn сумму чисел от начального значения до конечного
+     * @param start число
+     * @param finish число
+     * @return сумма
+     */
     public static int sum(int start, int finish) {
         int sum = 0;
         for (int index = start; index <= finish; index++) {
@@ -19,6 +29,12 @@ public class Counter {
         return sum;
     }
 
+    /**
+     * вычисляет сумму четныx чисел в диапазоне от start до finish
+     * @param start число
+     * @param finish число
+     * @return сумма
+     */
     public static int sumByEven(int start, int finish) {
         int sum = 0;
         for (int index = start; index <= finish; index++) {

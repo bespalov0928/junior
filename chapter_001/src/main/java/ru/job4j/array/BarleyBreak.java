@@ -1,5 +1,9 @@
 package ru.job4j.array;
 
+/**
+ * class BarleyBreak создание и обход двухмерного массива
+ * @author bespalov
+ */
 public class BarleyBreak {
     public static void main(String[] args) {
         int value = 0;

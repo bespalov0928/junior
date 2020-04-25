@@ -1,6 +1,15 @@
 package ru.job4j.loop;
 
+/**
+ * class Slash нарисовать крест в консоли
+ * @author bespalov
+ */
 public class Slash {
+
+    /**
+     * нарисовать крест в консоли
+     * @param size размер креста
+     */
     public static void draw(int size) {
         for (int row = 0; row < size; row++) {
             for (int cell = 0; cell < size; cell++) {

@@ -2,11 +2,11 @@ package ru.job4j.array;
 
 /**
  * class MatrixCheck проверrf, что строка в двухмерном массиве целиком заполнена символом 'X'
- *
  * @author bespalov
  */
 public class MatrixCheck {
     /**
+     * проверяет заполнение строки
      * @param board массив
      * @param row   номер строки
      * @return результат проверки
@@ -23,7 +23,12 @@ public class MatrixCheck {
         return result;
     }
 
-
+    /**
+     * проверяет заполнение колонки
+     * @param board - массив
+     * @param colum - номер колонки
+     * @return
+     */
     public static boolean monoVertical(char[][] board, int colum) {
         boolean result = true;
         for (int index = 0; index < board.length; index++) {

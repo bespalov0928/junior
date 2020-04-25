@@ -1,13 +1,14 @@
 package ru.job4j.array;
 
 /**
- * class SortSelected сортировка массива по возрастанию
+ * class SortSelected  сортировка массива
  * @author bespalov
  * @version 1.0
  */
 public class SortSelected {
 
     /**
+     * сортировка массива по возрастанию
      * @param data массив
      * @return масив отсортированный по порядку
      */

@@ -1,13 +1,13 @@
 package ru.job4j.array;
 
 /**
- * class MinDiapason поиск минимального значения в диапазоне
+ * class MinDiapason поиск значения в массиве
  * @author bespalov
  * @version 1.0
  */
 public class MinDiapason {
     /**
-     *
+     * поиск минимального значения в диапазоне
      * @param array масив
      * @param start начальный индекс
      * @param finish конечный индекс

@@ -1,8 +1,7 @@
 package ru.job4j.array;
 
 /**
- * class Defragment перемещаtn заполненные ячейки массива в начало, а пустые в конец.
- *
+ * class Defragment перемещает заполненные ячейки массива в начало, а пустые в конец.
  * @author bespalov
  */
 public class Defragment {
@@ -17,7 +16,6 @@ public class Defragment {
 
     /**
      * перемещеине заполненных ячеек масива в начало
-     *
      * @param array массив
      * @return обработанный масив
      */

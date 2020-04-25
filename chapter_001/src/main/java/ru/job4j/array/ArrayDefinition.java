@@ -1,5 +1,8 @@
 package ru.job4j.array;
 
+/**
+ * class ArrayDefinition создание массивов
+ */
 public class ArrayDefinition {
     public static void main(String[] args) {
         short[] x = new short[5];

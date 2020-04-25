@@ -1,14 +1,14 @@
 package ru.job4j.array;
 
 /**
- * class EndsWith метод проверяет то, что слово заканчивается на определенную последовательность.
+ * class EndsWith проверка слов
  * @author bespalov
  * @version 1.0
  */
 public class EndsWith {
 
     /**
-     *
+     * метод проверяет то, что слово заканчивается на определенную последовательность.
      * @param word слово
      * @param post окончание
      * @return результат сравнения
