@@ -25,9 +25,7 @@ public class Max {
      * @return
      */
     public static int max(int first, int second, int third) {
-        int tmp = max(first, second);
-        int result = third > tmp ? third : tmp;
-        return result;
+        return max(third, (max(first, second)));
     }
 
     /**
@@ -39,8 +37,6 @@ public class Max {
      * @return
      */
     public static int max(int first, int second, int third, int four) {
-        int tmp = max(first, second, third);
-        int result = tmp > four ? tmp : four;
-        return result;
+        return max(four, max(third, (max(first, second))));
     }
 }
