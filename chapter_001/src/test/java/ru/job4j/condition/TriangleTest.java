@@ -33,7 +33,7 @@ public class TriangleTest {
         double bc = 4;
 
         double p;
-        double expected = 9;
+        double expected = 4.5;
         Triangle trg = new Triangle(first, second, third);
         p = trg.period(ab, ac, bc);
         Assert.assertEquals(expected, p, 0.01);
@@ -48,7 +48,7 @@ public class TriangleTest {
         Point third = new Point(5, 2);
 
         double s;
-        double expected = 3.414;
+        double expected = 0.38;
         Triangle trg = new Triangle(first, second, third);
         s = trg.area();
         Assert.assertEquals(expected, s, 0.01);

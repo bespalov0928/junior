@@ -29,7 +29,7 @@ public class Triangle {
      * @return Периметр.
      */
     public double period(double a, double b, double c) {
-        return a + b + c;
+        return (a + b + c) / 2;
     }
 
     /**
