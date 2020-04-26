@@ -12,8 +12,14 @@ public class BallStory {
         Fox fox = new Fox();
 
         hare.tryEat(ball);
+        ball.song();
+        ball.tryRun();
         wolf.tryEat(ball);
+        ball.tryRun();
+        ball.song();
         fox.tryEat(ball);
+        ball.tryRun();
+        ball.song();
     }
 
 }
