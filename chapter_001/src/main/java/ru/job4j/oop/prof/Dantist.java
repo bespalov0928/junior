@@ -7,6 +7,10 @@ public class Dantist extends Doctor {
 
     Cleaning cleaning;
 
+    public Dantist(String name, String surname, String education, String birthday) {
+        super(name, surname, education, birthday);
+    }
+
     /**
      * чистка зубов
      * @param pacient клиент

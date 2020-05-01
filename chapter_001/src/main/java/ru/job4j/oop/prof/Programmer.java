@@ -6,6 +6,10 @@ package ru.job4j.oop.prof;
 public class Programmer extends Engineer {
     Aplication aplication;
 
+    public Programmer(String name, String surname, String education, String birthday) {
+        super(name, surname, education, birthday);
+    }
+
     /**
      * разработаь приложение
      * @param customer

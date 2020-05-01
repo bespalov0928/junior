@@ -5,6 +5,10 @@ public class Doctor extends Profession {
 
     Diagnose diagnosis;
 
+    public Doctor(String name, String surname, String education, String birthday) {
+        super(name, surname, education, birthday);
+    }
+
     public Diagnose heal(Pacient pacient) {
         return diagnosis;
     }
