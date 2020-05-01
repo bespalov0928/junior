@@ -5,7 +5,7 @@ package ru.job4j.oop.prof;
  */
 public class Engineer extends Profession {
 
-    Project project;
+   private Project project;
 
     public Engineer(String name, String surname, String education, String birthday) {
         super(name, surname, education, birthday);

@@ -4,7 +4,8 @@ package ru.job4j.oop.prof;
  * class Programmer описание что может программитс
  */
 public class Programmer extends Engineer {
-    Aplication aplication;
+
+    private Aplication aplication;
 
     public Programmer(String name, String surname, String education, String birthday) {
         super(name, surname, education, birthday);

@@ -5,7 +5,7 @@ package ru.job4j.oop.prof;
  */
 public class Dantist extends Doctor {
 
-    Cleaning cleaning;
+    private Cleaning cleaning;
 
     public Dantist(String name, String surname, String education, String birthday) {
         super(name, surname, education, birthday);

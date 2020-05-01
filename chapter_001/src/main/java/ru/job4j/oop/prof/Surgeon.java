@@ -5,7 +5,7 @@ package ru.job4j.oop.prof;
  */
 public class Surgeon extends Doctor {
 
-    Operation operation;
+    private Operation operation;
 
     public Surgeon(String name, String surname, String education, String birthday) {
         super(name, surname, education, birthday);
