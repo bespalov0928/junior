@@ -20,7 +20,7 @@ public class Student {
     }
 
     public void setGroup(String group) {
-        group = group;
+        this.group = group;
     }
 
     public String getDataReceipt() {
@@ -29,6 +29,6 @@ public class Student {
     }
 
     public void setDataReceipt(String dataReceipt) {
-        dataReceipt = dataReceipt;
+        this.dataReceipt = dataReceipt;
     }
 }
