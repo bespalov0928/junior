@@ -58,14 +58,16 @@ public class Tracker {
     }
 
     public Item findById(String id) {
-        Item tmp = null;
-        for (int index = 0; index <= position; index++) {
-            if (items[index].getId().equals(id)) {
-                tmp = items[index];
-                break;
-            }
-        }
-        return tmp;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+//        Item tmp = null;
+//        for (int index = 0; index <= position; index++) {
+//            if (items[index].getId().equals(id)) {
+//                tmp = items[index];
+//                break;
+//            }
+//        }
+//        return tmp;
     }
 
     /**
@@ -77,6 +79,28 @@ public class Tracker {
     private String generateId() {
         Random rm = new Random();
         String rsl = String.valueOf(rm.nextLong() + System.currentTimeMillis());
+        return rsl;
+    }
+
+    public boolean replace(String id, Item item) {
+        boolean rsl = false;
+        int index = indexOf(id);
+        if (index != -1) {
+            item.setId(id);
+            items[index] = item;
+            rsl = true;
+        }
+        return rsl;
+    }
+
+    private int indexOf(String id) {
+        int rsl = -1;
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId().equals(id)) {
+                rsl = index;
+                break;
+            }
+        }
         return rsl;
     }
 }
