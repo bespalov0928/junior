@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -87,5 +88,15 @@ public class TrackerTest {
         Item bugWithDesc = new Item("Bug with description");
         tracker.replace(id, bugWithDesc);
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
+    }
+
+    @Test
+    public void whenDelete() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id), is(nullValue()));
     }
 }

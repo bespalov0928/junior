@@ -28,6 +28,7 @@ public class Tracker {
 
     }
 
+
     public Item[] findAll() {
         Item[] namesWithoutNull = new Item[position];
         int size = 0;
@@ -100,6 +101,22 @@ public class Tracker {
                 rsl = index;
                 break;
             }
+        }
+        return rsl;
+    }
+
+    public boolean delete(String id) {
+        boolean rsl = false;
+        int index = indexOf(id);
+        Item item = items[index];
+        items[index] = null;
+        if (index != 1) {
+            int start = index + 1;
+            int distPos = index;
+            int size = position - index;
+            System.arraycopy(items, start, items, distPos, size);
+            items[position - 1] = null;
+            position--;
         }
         return rsl;
     }
