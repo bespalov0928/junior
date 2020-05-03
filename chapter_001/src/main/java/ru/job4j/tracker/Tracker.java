@@ -53,7 +53,6 @@ public class Tracker {
                 namesItem[size] = items[index];
                 size++;
             }
-
         }
         namesItem = Arrays.copyOf(namesItem, size);
         return namesItem;
