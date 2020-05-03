@@ -30,17 +30,6 @@ public class Tracker {
 
 
     public Item[] findAll() {
-//        Item[] namesWithoutNull = new Item[position];
-//        int size = 0;
-//        for (int index = 0; index < position; index++) {
-//            if (items[index] == null) {
-//                continue;
-//            }
-//            namesWithoutNull[size] = items[index];
-//            size++;
-//        }
-//        namesWithoutNull = Arrays.copyOf(namesWithoutNull, size);
-//        return namesWithoutNull;
         return Arrays.copyOf(items, position);
     }
 
@@ -61,14 +50,6 @@ public class Tracker {
     public Item findById(String id) {
         int index = indexOf(id);
         return index != -1 ? items[index] : null;
-//        Item tmp = null;
-//        for (int index = 0; index <= position; index++) {
-//            if (items[index].getId().equals(id)) {
-//                tmp = items[index];
-//                break;
-//            }
-//        }
-//        return tmp;
     }
 
     /**
@@ -108,8 +89,6 @@ public class Tracker {
     public boolean delete(String id) {
         boolean rsl = false;
         int index = indexOf(id);
-        Item item = items[index];
-        items[index] = null;
         if (index != 1) {
             int start = index + 1;
             int distPos = index;
