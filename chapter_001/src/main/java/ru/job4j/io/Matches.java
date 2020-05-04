@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * class Matches игра Спички
+ *
  * @author bespalov
  */
 public class Matches {
@@ -22,14 +23,11 @@ public class Matches {
             count = count - tmp;
 
             System.out.println("Осталось " + count + "спичек.");
-            if (count <= 3 && count != 0) {
-                move = !move;
-                run = false;
-            } else if (count == 0) {
-                run = false;
-            } else {
+            if (count > 0) {
                 move = !move;
                 continue;
+            } else {
+                run = false;
             }
 
             if (move) {
