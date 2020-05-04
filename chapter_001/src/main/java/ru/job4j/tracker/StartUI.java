@@ -9,6 +9,11 @@ public class StartUI {
             this.showMenu();
             System.out.println("Select:");
             int select = Integer.valueOf(scanner.nextLine());
+            if (select > 6) {
+                System.out.println("Такой команды не существует.");
+                continue;
+            }
+
             if (select == 0) {
                 System.out.println("=== Create a new Item ====");
                 System.out.print("Enter name: ");
@@ -18,35 +23,29 @@ public class StartUI {
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
                 Item[] items = tracker.findAll();
-                for (Item item: items) {
+                for (Item item : items) {
                     System.out.println(item.getName() + "," + item.getId());
                 }
             } else if (select == 2) {
                 System.out.println("=== Edit item ====");
                 System.out.println("Creat item. Enter name");
-                Item namesItem = new Item(scanner.nextLine());
-                System.out.println("Find name for replace. Enter name.");
-                Item[] items = tracker.findByName(scanner.nextLine());
-                if (items.length > 0) {
-                    System.out.println("Insert new item insted old items. Enter name");
-                    if (tracker.replace(items[0].getId(), namesItem)) {
-                        System.out.println("Заявка успешно замена");
-                    } else {
-                        System.out.println("Что-то пошло не так");
-                    }
+                String namesItem = scanner.nextLine();
+                System.out.println("Creat item. Enter id");
+                String idItem = scanner.nextLine();
+                Item newItem = new Item(namesItem);
+                if (tracker.replace(idItem, newItem)) {
+                    System.out.println("Заявка успешно замена");
                 } else {
-                    System.out.println("Не найдена заявка.");
+                    System.out.println("Что-то пошло не так");
                 }
             } else if (select == 3) {
                 System.out.println("=== Delete item ====");
-                System.out.println("Find item for delete. Enter name");
-                Item[] items = tracker.findByName(scanner.nextLine());
-                if (items.length > 0) {
-                    if (tracker.delete(items[0].getId())) {
-                        System.out.println("Заявка успешно удалена");
-                    } else {
-                        System.out.println("Что-то пошло не так");
-                    }
+                System.out.println("Enter id for delete");
+                String id = scanner.nextLine();
+                if (tracker.delete(id)) {
+                    System.out.println("Заявка успешно удалена");
+                } else {
+                    System.out.println("Что-то пошло не так");
                 }
             } else if (select == 4) {
                 System.out.println("=== Find item by Id ====");
@@ -62,13 +61,15 @@ public class StartUI {
                 System.out.println("Enter Name");
                 String name = scanner.nextLine();
                 Item[] namesItem = tracker.findByName(name);
-                for (Item item:namesItem) {
+                for (Item item : namesItem) {
                     System.out.println("name:" + item.getName() + ", id:" + item.getId());
-                }    
+                }
             } else if (select == 6) {
                 run = false;
             }
+
         }
+
     }
 
     private void showMenu() {
