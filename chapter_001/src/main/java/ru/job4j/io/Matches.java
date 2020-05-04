@@ -13,16 +13,19 @@ public class Matches {
         boolean run = true;
         boolean move = true;
         while (run) {
-            System.out.println("Следующий ход.");
+            System.out.println("Ходит " + (move ? "первый игрок." : "второй игрок."));
             int tmp = Integer.valueOf(input.nextLine());
             if (tmp > 3) {
                 System.out.println("Количество спичек больше 3-х");
                 continue;
             }
             count = count - tmp;
+
+            System.out.println("Осталось " + count + "спичек.");
             if (count <= 3) {
                 run = false;
             } else {
+                move = !move;
                 continue;
             }
 
