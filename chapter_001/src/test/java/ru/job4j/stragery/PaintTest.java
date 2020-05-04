@@ -28,9 +28,9 @@ public class PaintTest {
                         new StringJoiner(System.lineSeparator())
                                 .add("++++")
                                 .add("+  +")
-                                .add("+  +")
+                                //.add("+  +")
                                 .add("++++")
-                                .add(System.lineSeparator())
+                                //.add(System.lineSeparator())
                                 .toString()
                 )
         );
