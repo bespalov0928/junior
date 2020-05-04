@@ -11,7 +11,7 @@ public class Matches {
         int count = 11;
         Scanner input = new Scanner(System.in);
         boolean run = true;
-        int move = 1;
+        boolean move = true;
         while (run) {
             System.out.println("Следующий ход.");
             int tmp = Integer.valueOf(input.nextLine());
@@ -20,17 +20,16 @@ public class Matches {
                 continue;
             }
             count = count - tmp;
-            if (count <= 0) {
+            if (count <= 3) {
                 run = false;
             } else {
-                move++;
                 continue;
             }
 
-            if (move % 2 == 0) {
-                System.out.println("Выйграл второй игрок");
-            } else {
+            if (move) {
                 System.out.println("Выйграл первый игрок");
+            } else {
+                System.out.println("Выйграл второй игрок");
             }
         }
     }
