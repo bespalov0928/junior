@@ -26,7 +26,7 @@ public class MinDiapasonTest {
                         new int[] {10, 5, 3, 1},
                         1, 3
                 ),
-                is(1)
+                is(3)
         );
     }
 
