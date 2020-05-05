@@ -4,11 +4,12 @@ public class Paint {
 
     public static void main(String[] args) {
         draw(new Square());
+        System.out.println();
         draw(new Triangle());
     }
 
     public static void  draw(Shape shape) {
-        System.out.println(shape.draw());
+        System.out.print(shape.draw());
     }
 
 

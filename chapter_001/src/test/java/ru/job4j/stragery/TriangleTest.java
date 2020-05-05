@@ -12,16 +12,16 @@ import static org.junit.Assert.*;
 public class TriangleTest {
     @Test
     public void whenDrawTriangle() {
-//        Triangle triangle = new Triangle();
-//        assertThat(
-//                triangle.draw(),
-//                is(
-//                        new StringJoiner(System.lineSeparator())
-//                                .add("  +  ")
-//                                .add(" +++ ")
-//                                .add("+++++")
-//                                .toString()
-//                )
-//        );
+        Triangle triangle = new Triangle();
+        assertThat(
+                triangle.draw(),
+                is(
+                        new StringJoiner(System.lineSeparator())
+                                .add("  +  ")
+                                .add(" +++ ")
+                                .add("+++++")
+                                .toString()
+                )
+        );
     }
 }

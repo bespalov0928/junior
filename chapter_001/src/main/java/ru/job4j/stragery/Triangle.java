@@ -1,11 +1,13 @@
 package ru.job4j.stragery;
 
+import java.util.StringJoiner;
+
 public class Triangle implements Shape {
     public String draw() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("  +  ").append(System.lineSeparator());
-        sb.append(" +++ ").append(System.lineSeparator());
-        sb.append("+++++").append(System.lineSeparator());
-        return sb.toString();
+        StringJoiner sj = new StringJoiner(System.lineSeparator())
+                .add("  +  ")
+                .add(" +++ ")
+                .add("+++++");
+        return sj.toString();
     }
 }

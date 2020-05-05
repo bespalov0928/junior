@@ -22,7 +22,6 @@ public class SquareTest {
                                 .add("+  +")
                                 .add("+  +")
                                 .add("++++")
-                                .add(System.lineSeparator())
                                 .toString()
                 )
         );
