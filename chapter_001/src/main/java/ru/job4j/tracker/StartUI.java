@@ -6,6 +6,7 @@ public class StartUI {
 
     /**
      * создать заявку
+     *
      * @param input
      * @param tracker
      */
@@ -18,18 +19,23 @@ public class StartUI {
 
     /**
      * показать все заявки
+     *
      * @param tracker
      */
     public static void showAllItems(Tracker tracker) {
         System.out.println("=== Show all items ====");
         Item[] items = tracker.findAll();
+        if (items.length == 0) {
+            System.out.println("Нет ни одной заявки.");
+        }
         for (Item item : items) {
-            System.out.println(item.getName() + "," + item.getId());
+            System.out.println(item);
         }
     }
 
     /**
      * редактирование заявки
+     *
      * @param input
      * @param tracker
      */
@@ -49,6 +55,7 @@ public class StartUI {
 
     /**
      * удалеине заявки
+     *
      * @param input
      * @param tracker
      */
@@ -65,6 +72,7 @@ public class StartUI {
 
     /**
      * поиск заявки по ID
+     *
      * @param input
      * @param tracker
      */
@@ -73,7 +81,7 @@ public class StartUI {
         //System.out.println("Enter Id.");
         Item item = tracker.findById(input.askStr("Enter Id."));
         if (item != null) {
-            System.out.println("name:" + item.getName() + ", id:" + item.getId());
+            System.out.println(item);
         } else {
             System.out.println("заявка не найдена");
         }
@@ -81,6 +89,7 @@ public class StartUI {
 
     /**
      * поиск заявки по имени
+     *
      * @param input
      * @param tracker
      */
@@ -89,8 +98,11 @@ public class StartUI {
         //System.out.println("Enter Name");
         String name = input.askStr("Enter Name");
         Item[] namesItem = tracker.findByName(name);
+        if (namesItem.length == 0) {
+            System.out.println("Не найдено ни одной заявки.");
+        }
         for (Item item : namesItem) {
-            System.out.println("name:" + item.getName() + ", id:" + item.getId());
+            System.out.println(item);
         }
     }
 
