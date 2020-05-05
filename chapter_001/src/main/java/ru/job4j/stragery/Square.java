@@ -18,6 +18,7 @@ public class Square implements Shape {
 //                .add("++++");
 //        //.add(System.lineSeparator());
 
+
         return new StringJoiner(System.lineSeparator())
                 .add("++++")
                 .add("+  +")

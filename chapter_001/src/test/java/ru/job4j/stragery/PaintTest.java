@@ -35,6 +35,7 @@ public class PaintTest {
                 )
         );
         // возвращаем обратно стандартный вывод в консоль.
+
         System.setOut(stdout);
     }
 
