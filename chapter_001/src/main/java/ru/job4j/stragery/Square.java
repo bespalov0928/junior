@@ -19,13 +19,12 @@ public class Square implements Shape {
 //        //.add(System.lineSeparator());
 
 
-        return new StringJoiner(System.lineSeparator())
-                .add("++++")
-                .add("+  +")
-                .add("+  +")
-                .add("++++")
-                .add(System.lineSeparator())
-                .toString();
-
-    }
+//        return new StringJoiner(System.lineSeparator())
+//                .add("++++")
+//                .add("+  +")
+//                .add("+  +")
+//                .add("++++")
+//                .add(System.lineSeparator())
+//                .toString();
+//    }
 }
