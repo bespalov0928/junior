@@ -4,7 +4,9 @@ package ru.job4j.tracker;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 
 public class StartUITest {
@@ -54,11 +56,7 @@ public class StartUITest {
         Input input = new StubInput(answer);
         StartUI.deleteItem(input, tracker);
         Item created = tracker.findById(id);
-        if (created == null) {
-            assertTrue(true);
-        } else {
-            assertFalse(false);
-        }
+        assertThat(created, is(nullValue()));
     }
 
     @Test
