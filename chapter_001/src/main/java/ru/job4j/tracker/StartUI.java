@@ -21,7 +21,7 @@ public class StartUI {
         System.out.println("Menu.");
 
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            System.out.print(index + ". " + actions[index].name());
         }
     }
 
