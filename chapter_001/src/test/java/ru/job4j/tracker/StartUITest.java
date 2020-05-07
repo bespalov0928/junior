@@ -66,4 +66,16 @@ public class StartUITest {
     @Test
     public void findItemsByName() {
     }
+
+
+    @Test
+    public void whenExit() {
+        StubInput input = new StubInput(
+                new String[] {"0", "1"}
+        );
+        StubAction action = new StubAction();
+        StubAction action1 = new StubAction();
+        new StartUI().init(input, new Tracker(), new UserAction[] {action, action1 });
+        assertThat(action.isCall(), is(true));
+    }
 }

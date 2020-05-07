@@ -2,17 +2,17 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
-    public void init(Input scanner, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = scanner.askInt("Select:");
+            int select = input.askInt("Select:");
             if (select > 6) {
                 System.out.println("Такой команды не существует.");
                 continue;
             }
             UserAction action = actions[select];
-            run = action.execute(scanner, tracker);
+            run = action.execute(input, tracker);
         }
     }
 
