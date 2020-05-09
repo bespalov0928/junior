@@ -7,10 +7,6 @@ public class StartUI {
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Select:", actions.length);
-            if (select > 6) {
-                System.out.println("Такой команды не существует.");
-                continue;
-            }
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
