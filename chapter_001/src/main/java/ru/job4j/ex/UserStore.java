@@ -7,10 +7,10 @@ public class UserStore {
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User user = null;
         for (int index = 0; index < users.length; index++) {
-            if (!users[index].getUsername().equals(login)) {
-                continue;
+            if (users[index].getUsername().equals(login)) {
+                user = users[index];
+                break;
             }
-            user = users[index];
         }
         if (user == null) {
             throw new UserNotFoundException("Element not found.");
