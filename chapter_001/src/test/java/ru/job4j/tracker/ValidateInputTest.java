@@ -17,8 +17,8 @@ public class ValidateInputTest {
         ByteArrayOutputStream mem = new ByteArrayOutputStream();
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
-        String[] data = {"one", "1"};
-        ValidateInput input = new ValidateStubInput(data);
+        //String[] data = {"one", "1"};
+        ValidateInput input = new ValidateInput(new StubInput(new String[]{"one", "1"}));
         input.askInt("Enter");
         assertThat(mem.toString(), is(String.format("Please enter validate data again.%n")));
         System.setOut(out);
