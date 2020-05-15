@@ -12,7 +12,7 @@ public class Machine {
         int sum = money - price;
 
         for (int index = 0; index < COINS.length; index++) {
-            while (sum > 0 && sum >= COINS[index]) {
+            while (sum - COINS[index] >= 0) {
                 sum = sum - COINS[index];
                 rsl[size] = COINS[index];
                 size++;
