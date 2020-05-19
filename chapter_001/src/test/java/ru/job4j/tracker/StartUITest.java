@@ -5,6 +5,9 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.StringJoiner;
 
 import static org.hamcrest.core.Is.is;
@@ -75,11 +78,13 @@ public class StartUITest {
     @Test
     public void whenExit() {
         StubInput input = new StubInput(
-                new String[]{"0", "1"}
-        );
+                Arrays.asList(new String[]{"0", "1"}));
+
         StubAction action = new StubAction();
         StubAction action1 = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[]{action, action1});
+        List<UserAction> userActions = new ArrayList<>();
+        userActions.add(action);
+        new StartUI().init(input, new Tracker(), userActions);
         assertThat(action.isCall(), is(true));
     }
 
@@ -88,10 +93,12 @@ public class StartUITest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream def = System.out;
         System.setOut(new PrintStream(out));
-        StubInput input = new StubInput(new String[]{"0"});
+        StubInput input = new StubInput(Arrays.asList(new String[]{"0"}));
 
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+        List<UserAction> userActions = new ArrayList<>();
+        userActions.add(action);
+        new StartUI().init(input, new Tracker(), userActions);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0. === Create a new Item ====")

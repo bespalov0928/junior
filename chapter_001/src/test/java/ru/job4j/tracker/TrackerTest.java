@@ -7,6 +7,9 @@ import org.junit.runner.RunWith;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.StringJoiner;
 
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -27,22 +30,22 @@ public class TrackerTest {
 
     @Test
     public void findAll() {
-        Item[] extend = new Item[3];
+        List<Item> extend = new ArrayList<>();
 
         Item item1 = new Item("test1");
         Item item2 = new Item("test2");
         Item item3 = new Item("test3");
         Item item4 = new Item("test4");
-        extend[0] = item1;
-        extend[1] = item2;
-        extend[2] = item4;
+        extend.add(item1);
+        extend.add(item2);
+        extend.add(item4);
 
         Tracker tracker = new Tracker();
         tracker.add(item1);
         tracker.add(item2);
         //tracker.add(item3);
         tracker.add(item4);
-        Item[] result = tracker.findAll();
+        List<Item> result = tracker.findAll();
         assertThat(extend, is(result));
     }
 
@@ -53,16 +56,16 @@ public class TrackerTest {
         Item task2 = new Item("task2");
         Item task3 = new Item("task3");
 
-        Item[] extend = new Item[2];
-        extend[0] = task;
-        extend[1] = task1;
+        List<Item> extend = new ArrayList<>();
+        extend.add(task);
+        extend.add(task1);
 
         Tracker tracker = new Tracker();
         tracker.add(task);
         tracker.add(task1);
         tracker.add(task2);
         tracker.add(task3);
-        Item[] rezult = tracker.findByName("task");
+        List<Item> rezult = tracker.findByName("task");
         assertThat(extend, Is.is(rezult));
     }
 
@@ -115,7 +118,7 @@ public class TrackerTest {
         Item item = new Item("name1");
         tracker.add(item);
         FindAllAction act = new FindAllAction();
-        act.execute(new StubInput(new String[]{}), tracker);
+        act.execute(new StubInput(Arrays.asList(new String[]{})), tracker);
         String exect = new StringJoiner(System.lineSeparator() + "" + System.lineSeparator())
                 .add(item.getId() + ", " + item.getName())
                 .toString();
@@ -128,7 +131,7 @@ public class TrackerTest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream def = System.out;
         System.setOut(new PrintStream(out));
-        Input input = new StubInput(new String[]{"name1"});
+        Input input = new StubInput(Arrays.asList(new String[]{"name1"}));
         Tracker tracker = new Tracker();
         Item item = new Item("name1");
         tracker.add(item);
@@ -146,12 +149,12 @@ public class TrackerTest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream def = System.out;
         System.setOut(new PrintStream(out));
-        Input input = new StubInput(new String[]{"id"});
+        Input input = new StubInput(Arrays.asList(new String[]{"id"}));
         Item item = new Item("name1");
         Tracker tracker = new Tracker();
         tracker.add(item);
         FindByIdAction act = new FindByIdAction();
-        act.execute(new StubInput(new String[]{tracker.findAll()[0].getId()}), tracker);
+        act.execute(new StubInput(Arrays.asList(new String[]{tracker.findAll().get(0).getId()})), tracker);
         String expect = new StringJoiner(System.lineSeparator() + "" + System.lineSeparator())
                 .add("Item{" + "name='" + item.getName() + '\'' + ", id='" + item.getId() + '\'' + '}')
                 .toString();
@@ -159,7 +162,4 @@ public class TrackerTest {
 
         System.setOut(def);
     }
-
-
-
 }

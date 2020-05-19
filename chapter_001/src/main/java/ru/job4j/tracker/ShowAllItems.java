@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 public class ShowAllItems implements UserAction {
     @Override
     public String name() {
@@ -8,8 +10,8 @@ public class ShowAllItems implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        Item[] items = tracker.findAll();
-        if (items.length == 0) {
+        List<Item> items = tracker.findAll();
+        if (items.size() == 0) {
             System.out.println("Нет ни одной заявки.");
         }
         for (Item item : items) {
