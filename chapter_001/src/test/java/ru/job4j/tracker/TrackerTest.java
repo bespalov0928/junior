@@ -19,6 +19,7 @@ import static org.junit.Assert.*;
 
 public class TrackerTest {
 
+
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();

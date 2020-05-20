@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 
 public class ValidateInputTest {
 
+
     @Test
     public void whenInvalidInput() {
         ByteArrayOutputStream mem = new ByteArrayOutputStream();

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class StubInput implements Input {
 
+
     //private String[] answer;
     private List<String> answer;
     private int position = 0;
