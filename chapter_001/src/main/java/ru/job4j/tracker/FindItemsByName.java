@@ -15,11 +15,11 @@ public class FindItemsByName implements UserAction {
         List<Item> namesItem = tracker.findByName(name);
         if (namesItem.size() == 0) {
             System.out.println("Не найдено ни одной заявки.");
+        } else {
+            for (Item item : namesItem) {
+                System.out.print(item);
+            }
         }
-        for (Item item : namesItem) {
-            System.out.println(item);
-        }
-
         return true;
     }
 }

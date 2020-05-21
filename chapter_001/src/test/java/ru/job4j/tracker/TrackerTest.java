@@ -118,10 +118,10 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("name1");
         tracker.add(item);
-        FindAllAction act = new FindAllAction();
+        ShowAllItems act = new ShowAllItems();
         act.execute(new StubInput(Arrays.asList(new String[]{})), tracker);
         String exect = new StringJoiner(System.lineSeparator() + "" + System.lineSeparator())
-                .add(item.getId() + ", " + item.getName())
+                .add(String.format("Item{name='%s', id='%s'}", item.getName(), item.getId()))
                 .toString();
         assertThat(new String(out.toByteArray()), is(exect));
         System.setOut(def);
@@ -136,10 +136,10 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("name1");
         tracker.add(item);
-        FindByNameAction act = new FindByNameAction();
+        FindItemsByName act = new FindItemsByName();
         act.execute(input, tracker);
         String ecpect = new StringJoiner(System.lineSeparator() + "" + System.lineSeparator())
-                .add("Item{" + "name='" + item.getName() + '\'' + ", id='" + item.getId() + '\'' + '}')
+                 .add(String.format("Item{name='%s', id='%s'}", item.getName(), item.getId()))
                 .toString();
         assertThat(new String(out.toByteArray()), is(ecpect));
         System.setOut(def);
@@ -154,7 +154,7 @@ public class TrackerTest {
         Item item = new Item("name1");
         Tracker tracker = new Tracker();
         tracker.add(item);
-        FindByIdAction act = new FindByIdAction();
+        FindItemById act = new FindItemById();
         act.execute(new StubInput(Arrays.asList(new String[]{tracker.findAll().get(0).getId()})), tracker);
         String expect = new StringJoiner(System.lineSeparator() + "" + System.lineSeparator())
                 .add("Item{" + "name='" + item.getName() + '\'' + ", id='" + item.getId() + '\'' + '}')

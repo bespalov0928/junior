@@ -13,10 +13,10 @@ public class ShowAllItems implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         List<Item> items = tracker.findAll();
         if (items.size() == 0) {
-            System.out.println("Нет ни одной заявки.");
+            System.out.print("Нет ни одной заявки.");
         }
         for (Item item : items) {
-            System.out.println(item);
+            System.out.print(item);
         }
 
         return true;
