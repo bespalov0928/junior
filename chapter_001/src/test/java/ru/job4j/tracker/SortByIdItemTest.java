@@ -50,7 +50,7 @@ public class SortByIdItemTest {
                 item2,
                 item3
         );
-        Collections.sort(items, new SortByIdItemRevers());
+        Collections.sort(items, Collections.reverseOrder(new SortByIdItem()));
         List<Item> extend = Arrays.asList(
                 item3,
                 item2,
