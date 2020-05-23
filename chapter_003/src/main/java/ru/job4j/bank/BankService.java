@@ -12,9 +12,7 @@ public class BankService {
      * @param user
      */
     public void addUser(User user) {
-        if (!users.containsKey(user)) {
-            users.put(user, new ArrayList<Account>());
-        }
+        users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     /**
@@ -24,11 +22,12 @@ public class BankService {
      * @param account
      */
     public void addAccount(String passport, Account account) {
-        Account accountUser = findByRequisite(passport, account.getRequisite());
         User user = findByPassport(passport);
-        List<Account> listAccount = users.get(user);
-        if (!listAccount.contains(account)) {
-            listAccount.add(account);
+        if (user != null) {
+            List<Account> listAccount = users.get(user);
+            if (!listAccount.contains(account)) {
+                listAccount.add(account);
+            }
         }
     }
 
@@ -41,11 +40,8 @@ public class BankService {
     public User findByPassport(String passport) {
         User rsl = null;
         Set<User> setUser = users.keySet();
-        if (setUser.contains(new User(passport, ""))) {
-            for (User user : setUser) {
-                if (!user.getPassport().equals(passport)) {
-                    continue;
-                }
+        for (User user : setUser) {
+            if (user.getPassport().equals(passport)) {
                 rsl = user;
                 break;
             }
@@ -94,7 +90,7 @@ public class BankService {
         } else if (accountDest == null) {
             rsl = false;
             System.out.println(String.format("Не нйден счет:%ы", destRequisite));
-        } else if (amount - accountSrc.getBalance() > 0) {
+        } else if (accountSrc.getBalance() - amount  < 0) {
             rsl = false;
             System.out.println(String.format("на балансе:%s не достаточно средств", srcRequisite));
         }
