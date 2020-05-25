@@ -12,7 +12,7 @@ public class JSONReport extends TextReport {
                 + "body : " + body
                 + System.lineSeparator()
                 + System.lineSeparator()
-                +"}";
+                + "}";
         return s;
     }
 }
