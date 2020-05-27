@@ -1,0 +1,2 @@
+[![Build Status](https://travis-ci.org/bespalov0928/junior.svg?branch=master)](https://travis-ci.org/bespalov0928/junior)
+[![codecov](https://codecov.io/gh/bespalov0928/junior/branch/master/graph/badge.svg)](https://codecov.io/gh/bespalov0928/junior)
