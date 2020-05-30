@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static ru.job4j.collection.sortedDepartment.Departments.sortAsc;
 
 
 public class DepartmentsTest {
@@ -18,6 +19,7 @@ public class DepartmentsTest {
         List<String> input = Arrays.asList("k1/sk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
+        sortAsc(result);
         assertThat(result, is(expect));
     }
 
@@ -26,6 +28,7 @@ public class DepartmentsTest {
         List<String> input = Arrays.asList("k1", "k1/sk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
+        sortAsc(result);
         assertThat(result, is(expect));
     }
 
