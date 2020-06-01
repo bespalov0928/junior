@@ -3,16 +3,16 @@ package ru.job4j.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiPredicate;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class SearchAtt {
     public static List<Attachment> filterSize(List<Attachment> list) {
 
-        BiPredicate<Attachment, String> func = new BiPredicate<Attachment, String>() {
+        Predicate<Attachment> func = new Predicate<Attachment>() {
             @Override
-            public boolean test(Attachment att, String s) {
-                return att.getSize() > (Integer.parseInt(s));
+            public boolean test(Attachment att) {
+                return att.getSize() > 100;
             }
         };
         Supplier<String> initValue = new Supplier<String>() {
@@ -25,10 +25,10 @@ public class SearchAtt {
     }
 
     public static List<Attachment> filterName(List<Attachment> list) {
-        BiPredicate<Attachment, String> func = new BiPredicate<Attachment, String>() {
+        Predicate<Attachment> func = new Predicate<Attachment>() {
             @Override
-            public boolean test(Attachment att, String s) {
-                return att.getName().contains(s);
+            public boolean test(Attachment att) {
+                return att.getName().contains("bug");
             }
         };
         Supplier<String> initValue = new Supplier<String>() {
@@ -40,11 +40,11 @@ public class SearchAtt {
         return filter(list, func, initValue);
     }
 
-    private static List<Attachment> filter(List<Attachment> list, BiPredicate<Attachment, String> func, Supplier<String> initValue) {
+    private static List<Attachment> filter(List<Attachment> list, Predicate<Attachment> func, Supplier<String> initValue) {
         String x = initValue.get();
         List<Attachment> listRsl = new ArrayList<Attachment>();
         for (Attachment att : list) {
-            boolean rsl = func.test(att, x);
+            boolean rsl = func.test(att);
             if (rsl) {
                 listRsl.add(att);
             }
