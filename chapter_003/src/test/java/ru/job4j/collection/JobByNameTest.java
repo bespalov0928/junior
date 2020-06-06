@@ -2,6 +2,9 @@ package ru.job4j.collection;
 
 
 import org.junit.Test;
+import ru.job4j.collection.sortedJobs.Job;
+import ru.job4j.collection.sortedJobs.JobByName;
+import ru.job4j.collection.sortedJobs.JobDescByName;
 
 
 import java.util.Comparator;

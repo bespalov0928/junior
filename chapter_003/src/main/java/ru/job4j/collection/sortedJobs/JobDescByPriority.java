@@ -1,4 +1,6 @@
-package ru.job4j.collection;
+package ru.job4j.collection.sortedJobs;
+
+import ru.job4j.collection.sortedJobs.Job;
 
 import java.util.Comparator;
 
