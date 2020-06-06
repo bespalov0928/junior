@@ -1,39 +1,18 @@
 package ru.job4j.lambda;
 
 import java.util.function.BiFunction;
-import java.util.function.BinaryOperator;
 import java.util.function.Supplier;
 
 public class Reduce {
     public static int summation(int to) {
-        BiFunction<Integer, Integer, Integer> func = new BinaryOperator<Integer>() {
-            @Override
-            public Integer apply(Integer left, Integer right) {
-                return left + right;
-            }
-        };
-        Supplier<Integer> initValue = new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return 0;
-            }
-        };
+        BiFunction<Integer, Integer, Integer> func = (left, right) -> (left + right);
+        Supplier<Integer> initValue = () -> (0);
         return loop(to, func, initValue);
     }
 
     public static int multiplication(int to) {
-        BiFunction<Integer, Integer, Integer> func = new BinaryOperator<Integer>() {
-            @Override
-            public Integer apply(Integer left, Integer right) {
-                return left * right;
-            }
-        };
-        Supplier<Integer> initValue = new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return 1;
-            }
-        };
+        BiFunction<Integer, Integer, Integer> func = (left, right) -> (left * right);
+        Supplier<Integer> initValue = () -> 1;
         return loop(to, func, initValue);
     }
 
