@@ -21,8 +21,8 @@ public class FunctionRangeTest {
 
     @Test
     public void whenLinearFunctionThenQuadraticResults() {
-        List<Double> result = Functions.diapason(5, 8, x -> sqrt(x));
-        List<Double> expected = Arrays.asList(25D, 36D, 49D);
+        List<Double> result = Functions.diapason(4, 5, x -> sqrt(x));
+        List<Double> expected = Arrays.asList(2.0D);
         assertThat(result, is(expected));
     }
 
