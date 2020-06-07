@@ -18,9 +18,13 @@ public class PhoneDictionary {
      */
     public ArrayList<Person> find(String key) {
 
+        Predicate<Person> predicateAddress = (person) -> (person.getAddress().contains(key));
+        Predicate<Person> predicateName = (person) -> (person.getName().contains(key));
+        Predicate<Person> predicatePhone = (person) -> (person.getPhone().contains(key));
+        Predicate<Person> predicateSurname = (person) -> (person.getSurname().contains(key));
         Predicate<Person> combine = (person) -> {
             boolean rsl = false;
-            if (person.getAddress().contains(key) || person.getName().contains(key) || person.getPhone().contains(key) || person.getSurname().contains(key)) {
+            if (predicateAddress.test(person) || predicateName.test(person) || predicatePhone.test(person) || predicateSurname.test(person)) {
                 rsl = true;
             }
             return rsl;
