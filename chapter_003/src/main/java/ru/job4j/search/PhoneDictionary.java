@@ -22,13 +22,8 @@ public class PhoneDictionary {
         Predicate<Person> predicateName = (person) -> (person.getName().contains(key));
         Predicate<Person> predicatePhone = (person) -> (person.getPhone().contains(key));
         Predicate<Person> predicateSurname = (person) -> (person.getSurname().contains(key));
-        Predicate<Person> combine = (person) -> {
-            boolean rsl = false;
-            if (predicateAddress.test(person) || predicateName.test(person) || predicatePhone.test(person) || predicateSurname.test(person)) {
-                rsl = true;
-            }
-            return rsl;
-        };
+
+        Predicate<Person> combine = predicateName.or(predicatePhone.or(predicateSurname.or(predicateAddress)));
 
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
@@ -37,11 +32,5 @@ public class PhoneDictionary {
             }
         }
         return result;
-//        for (Person person : persons) {
-//            if (person.getAddress().contains(key) || person.getName().contains(key) || person.getPhone().contains(key) || person.getSurname().contains(key)) {
-//                result.add(person);
-//            }
-//        }
-//        return result;
     }
 }
