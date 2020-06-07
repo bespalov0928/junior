@@ -29,7 +29,7 @@ public class FunctionRangeTest {
     @Test
     public void whenLinearFunctionThenIndicatcResults() {
         List<Double> result = Functions.diapason(5, 8, x -> pow(2.0, x));
-        List<Double> expected = Arrays.asList(25D, 36D, 49D);
+        List<Double> expected = Arrays.asList(32D, 64D, 128D);
         assertThat(result, is(expected));
     }
 }
