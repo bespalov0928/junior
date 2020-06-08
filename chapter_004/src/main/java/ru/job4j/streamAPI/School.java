@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 public class School {
     public static List<Student> collect(List<Student> students, Predicate<Student> predicate) {
 
-        Predicate<Student> predicat = (student) -> (predicate.test(student));
+        //Predicate<Student> predicat = (student) -> (predicate.test(student));
 
         List<Student> rsl = students
                 .stream()
-                .filter(predicat)
+                .filter(predicate)
                 .collect(Collectors.toList());
         return rsl;
     }
