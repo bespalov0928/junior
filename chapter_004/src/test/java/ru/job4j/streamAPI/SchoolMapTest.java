@@ -17,6 +17,7 @@ public class SchoolMapTest {
     public void collect() {
         List<Student> students = List.of(
                 new Student(40, "Ivan"),
+                new Student(45, "Ivan"),
                 new Student(50, "Petr"),
                 new Student(60, "Nikolay")
         );
