@@ -16,8 +16,8 @@ public class DepartmentsTest {
 
     @Test
     public void whenMissed() {
-        List<String> input = Arrays.asList("k1/sk1");
-        List<String> expect = Arrays.asList("k1", "k1/sk1");
+        List<String> input = List.of("k1/sk1");
+        List<String> expect = List.of("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
         sortAsc(result);
         assertThat(result, is(expect));
@@ -25,8 +25,8 @@ public class DepartmentsTest {
 
     @Test
     public void whenNonChange() {
-        List<String> input = Arrays.asList("k1", "k1/sk1");
-        List<String> expect = Arrays.asList("k1", "k1/sk1");
+        List<String> input = List.of("k1", "k1/sk1");
+        List<String> expect = List.of("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
         sortAsc(result);
         assertThat(result, is(expect));
@@ -35,7 +35,7 @@ public class DepartmentsTest {
     @Test
     public void whenReversedSortOne() {
         List<String> input = Arrays.asList("k1", "k1/sk1", "k2", "k2/sk1");
-        List<String> expect = Arrays.asList("k2", "k2/sk1", "k1", "k1/sk1");
+        List<String> expect = List.of("k2", "k2/sk1", "k1", "k1/sk1");
         Collections.sort(input, new DepDescComp());
         //List<String> result = Departments.fillGaps(input);
         assertThat(input, is(expect));
@@ -44,7 +44,7 @@ public class DepartmentsTest {
     @Test
     public void whenReversedSortTwo() {
         List<String> input = Arrays.asList("k1", "k1/sk1", "k2", "k2/sk1", "k2/sk1/ssk1", "k2/sk1/ssk1/ssk2");
-        List<String> expect = Arrays.asList("k2", "k2/sk1", "k2/sk1/ssk1", "k2/sk1/ssk1/ssk2", "k1", "k1/sk1");
+        List<String> expect = List.of("k2", "k2/sk1", "k2/sk1/ssk1", "k2/sk1/ssk1/ssk2", "k1", "k1/sk1");
         Collections.sort(input, new DepDescComp());
         //List<String> result = Departments.fillGaps(input);
         assertThat(input, is(expect));
