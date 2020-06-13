@@ -12,7 +12,7 @@ public class DepDescCompTest {
 
     @Test
     public void compare() {
-        int rsl = new DepDescComp().compare(
+        var rsl = new DepDescComp().compare(
                 "K2/SK1/SSK2",
                 "K2/SK1/SSK1"
         );
@@ -21,7 +21,7 @@ public class DepDescCompTest {
 
     @Test
     public void whenUpDepartmentGoBefore() {
-        int rsl = new DepDescComp().compare(
+        var rsl = new DepDescComp().compare(
                 "K2",
                 "K2/SK1"
         );

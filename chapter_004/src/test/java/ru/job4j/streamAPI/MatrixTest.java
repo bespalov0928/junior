@@ -20,8 +20,8 @@ public class MatrixTest {
         array[1][0] = 3;
         array[1][1] = 4;
 
-        List<Integer> result = Matrix.convertInStrem(array);
-        List<Integer> extend = new ArrayList<Integer>();
+        var result = Matrix.convertInStrem(array);
+        var extend = new ArrayList<Integer>();
         extend.add(1);
         extend.add(2);
         extend.add(3);

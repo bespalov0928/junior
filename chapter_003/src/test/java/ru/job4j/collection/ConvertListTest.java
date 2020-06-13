@@ -12,11 +12,11 @@ public class ConvertListTest {
 
     @Test
     public void whenTwoList() {
-        List<int[]> in = List.of(
+        var in = List.of(
                 new int[]{1},
                 new int[]{2, 3}
         );
-        List<Integer> expect = List.of(1, 2, 3);
+        var expect = List.of(1, 2, 3);
         assertThat(ConvertList.convert(in), is(expect));
     }
 }

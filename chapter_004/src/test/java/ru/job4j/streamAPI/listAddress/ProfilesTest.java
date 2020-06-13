@@ -16,7 +16,7 @@ public class ProfilesTest {
         List<Profile> myList = new ArrayList<>();
         myList.add(new Profile(new Address("novokusneetck", "pirogova", 18, 11)));
         myList.add(new Profile(new Address("moskva", "street", 15, 245)));
-        List<Address> extend = new ArrayList<>();
+        var extend = new ArrayList<>();
         extend.add(new Address("moskva", "street", 15, 245));
         extend.add(new Address("novokusneetck", "pirogova", 18, 11));
         List<Address> result = Profiles.collect(myList);
@@ -28,7 +28,7 @@ public class ProfilesTest {
         myList.add(new Profile(new Address("novokusneetck", "pirogova", 18, 11)));
         myList.add(new Profile(new Address("novokusneetck", "pirogova", 18, 11)));
         myList.add(new Profile(new Address("moskva", "street", 15, 245)));
-        List<Address> extend = new ArrayList<>();
+        var extend = new ArrayList<>();
         extend.add(new Address("moskva", "street", 15, 245));
         extend.add(new Address("novokusneetck", "pirogova", 18, 11));
         List<Address> result = Profiles.collect(myList);

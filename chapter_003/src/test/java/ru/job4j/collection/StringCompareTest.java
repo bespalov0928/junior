@@ -12,8 +12,8 @@ public class StringCompareTest {
 
     @Test
     public void whenStringsAreEqualThenZero() {
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+        var compare = new StringCompare();
+        var rst = compare.compare(
                 "Ivanov",
                 "Ivanov"
         );
@@ -22,8 +22,8 @@ public class StringCompareTest {
 
     @Test
     public void whenLeftLessThanRightResultShouldBeNegative() {
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+        var compare = new StringCompare();
+        var rst = compare.compare(
                 "Ivanov",
                 "Ivanova"
         );
@@ -32,8 +32,8 @@ public class StringCompareTest {
 
     @Test
     public void whenLeftGreaterThanRightResultShouldBePositive() {
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+        var compare = new StringCompare();
+        var rst = compare.compare(
                 "Petrov",
                 "Ivanova"
         );
@@ -42,8 +42,8 @@ public class StringCompareTest {
 
     @Test
     public void secondCharOfLeftGreaterThanRightShouldBePositive() {
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+        var compare = new StringCompare();
+        var rst = compare.compare(
                 "Petrov",
                 "Patrov"
         );
@@ -52,8 +52,8 @@ public class StringCompareTest {
 
     @Test
     public void secondCharOfLeftLessThanRightShouldBeNegative() {
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+        var compare = new StringCompare();
+        var rst = compare.compare(
                 "Patrova",
                 "Petrov"
         );
