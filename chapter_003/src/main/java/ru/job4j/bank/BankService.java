@@ -1,6 +1,5 @@
 package ru.job4j.bank;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class BankService {
@@ -22,9 +21,9 @@ public class BankService {
      * @param account
      */
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            List<Account> listAccount = users.get(user);
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            List<Account> listAccount = users.get(user.get());
             if (!listAccount.contains(account)) {
                 listAccount.add(account);
             }
@@ -37,12 +36,12 @@ public class BankService {
      * @param passport
      * @return
      */
-    public User findByPassport(String passport) {
-        User rsl = null;
+    public Optional<User> findByPassport(String passport) {
+        Optional<User> rsl = Optional.empty();
         Set<User> setUser = users.keySet();
         for (User user : setUser) {
             if (user.getPassport().equals(passport)) {
-                rsl = user;
+                rsl = Optional.of(user);
                 break;
             }
         }
@@ -56,14 +55,14 @@ public class BankService {
      * @param requisite
      * @return
      */
-    public Account findByRequisite(String passport, String requisite) {
-        Account rsl = null;
-        User user = findByPassport(passport);
-        if (user != null) {
-            List<Account> listAccount = users.get(user);
+    public Optional<Account> findByRequisite(String passport, String requisite) {
+        Optional<Account> rsl = null;
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            List<Account> listAccount = users.get(user.get());
             int index = listAccount.indexOf(new Account(requisite, -1));
             if (index >= 0) {
-                rsl = listAccount.get(index);
+                rsl = Optional.of(listAccount.get(index));
             }
         }
         return rsl;
@@ -82,21 +81,21 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = true;
-        Account accountSrc = findByRequisite(srcPassport, srcRequisite);
-        Account accountDest = findByRequisite(destPassport, destRequisite);
-        if (accountSrc == null) {
+        Optional<Account> accountSrc = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> accountDest = findByRequisite(destPassport, destRequisite);
+        if (accountSrc.isEmpty()) {
             rsl = false;
-            System.out.println(String.format("Не нйден счет:%ы", srcRequisite));
-        } else if (accountDest == null) {
+            System.out.println(String.format("Не нйден счет:%s", srcRequisite));
+        } else if (accountDest.isEmpty()) {
             rsl = false;
-            System.out.println(String.format("Не нйден счет:%ы", destRequisite));
-        } else if (accountSrc.getBalance() - amount  < 0) {
+            System.out.println(String.format("Не нйден счет:%s", destRequisite));
+        } else if (accountSrc.get().getBalance() - amount  < 0) {
             rsl = false;
             System.out.println(String.format("на балансе:%s не достаточно средств", srcRequisite));
         }
         if (rsl) {
-            accountSrc.setBalanse(accountSrc.getBalance() - amount);
-            accountDest.setBalanse(accountDest.getBalance() + amount);
+            accountSrc.get().setBalanse(accountSrc.get().getBalance() - amount);
+            accountDest.get().setBalanse(accountDest.get().getBalance() + amount);
         }
         return rsl;
     }
